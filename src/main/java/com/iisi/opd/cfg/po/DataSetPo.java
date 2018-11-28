@@ -68,8 +68,8 @@ public class DataSetPo {
     @Column(name = "last_edit_time")
     private Date lastEditTime;
 
-    @Column(name = "create_time")
-    private Date createTime;
+    @Column(name = "published_date")
+    private Date publishedDate;
 
     @Column(name = "data_out_count", nullable = false, columnDefinition = "bigint default '0'")
     private long dataOutCount;
@@ -127,7 +127,7 @@ public class DataSetPo {
         return this.oid;
     }
 
-    public void setOid(String oid) {
+    public void setOid(final String oid) {
         this.oid = oid;
     }
 
@@ -135,7 +135,7 @@ public class DataSetPo {
         return this.name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
@@ -143,7 +143,7 @@ public class DataSetPo {
         return this.description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(final String description) {
         this.description = description;
     }
 
@@ -151,7 +151,7 @@ public class DataSetPo {
         return this.isActive;
     }
 
-    public void setActive(Boolean isActive) {
+    public void setActive(final Boolean isActive) {
         this.isActive = isActive;
     }
 
@@ -159,7 +159,7 @@ public class DataSetPo {
         return this.isEnable;
     }
 
-    public void setEnable(Boolean isEnable) {
+    public void setEnable(final Boolean isEnable) {
         this.isEnable = isEnable;
     }
 
@@ -167,7 +167,7 @@ public class DataSetPo {
         return this.isApplied;
     }
 
-    public void setApplied(Boolean isApplied) {
+    public void setApplied(final Boolean isApplied) {
         this.isApplied = isApplied;
     }
 
@@ -175,7 +175,7 @@ public class DataSetPo {
         return this.isPublic;
     }
 
-    public void setPublic(Boolean isPublic) {
+    public void setPublic(final Boolean isPublic) {
         this.isPublic = isPublic;
     }
 
@@ -183,7 +183,7 @@ public class DataSetPo {
         return this.noPublicReason;
     }
 
-    public void setNoPublicReason(String noPublicReason) {
+    public void setNoPublicReason(final String noPublicReason) {
         this.noPublicReason = noPublicReason;
     }
 
@@ -191,7 +191,7 @@ public class DataSetPo {
         return this.publicTime;
     }
 
-    public void setPublicTime(Date publicTime) {
+    public void setPublicTime(final Date publicTime) {
         this.publicTime = publicTime;
     }
 
@@ -199,7 +199,7 @@ public class DataSetPo {
         return this.lastEditUserName;
     }
 
-    public void setLastEditUserName(String lastEditUserName) {
+    public void setLastEditUserName(final String lastEditUserName) {
         this.lastEditUserName = lastEditUserName;
     }
 
@@ -207,7 +207,7 @@ public class DataSetPo {
         return this.lastEditTime;
     }
 
-    public void setLastEditTime(Date lastEditTime) {
+    public void setLastEditTime(final Date lastEditTime) {
         this.lastEditTime = lastEditTime;
     }
 
@@ -215,7 +215,7 @@ public class DataSetPo {
         return this.dataSetMetadataPoList;
     }
 
-    public void setDataSetMetadataPoList(List<DataSetMetadataPo> dataSetMetadataPoList) {
+    public void setDataSetMetadataPoList(final List<DataSetMetadataPo> dataSetMetadataPoList) {
         this.dataSetMetadataPoList = dataSetMetadataPoList;
     }
 
@@ -223,7 +223,7 @@ public class DataSetPo {
         return this.dataCategoryPo;
     }
 
-    public void setDataCategoryPo(DataCategoryPo dataCategoryPo) {
+    public void setDataCategoryPo(final DataCategoryPo dataCategoryPo) {
         this.dataCategoryPo = dataCategoryPo;
     }
 
@@ -231,12 +231,12 @@ public class DataSetPo {
         return this.dataTagPoList;
     }
 
-    public void setDataTagPoList(List<DataTagPo> dataTagPoList) {
+    public void setDataTagPoList(final List<DataTagPo> dataTagPoList) {
         this.dataTagPoList.clear();
         this.dataTagPoList.addAll(dataTagPoList);
     }
 
-    public void addDataTagPoList(List<DataTagPo> dataTagPoList) {
+    public void addDataTagPoList(final List<DataTagPo> dataTagPoList) {
         this.dataTagPoList.addAll(dataTagPoList);
     }
 
@@ -244,11 +244,11 @@ public class DataSetPo {
         return this.dataCfgPoList;
     }
 
-    public void setDataCfgPoList(List<DataCfgPo> dataCfgPoList) {
+    public void setDataCfgPoList(final List<DataCfgPo> dataCfgPoList) {
         this.dataCfgPoList = dataCfgPoList;
     }
 
-    public void addDataCfgPoList(List<DataCfgPo> dataCfgPoList) {
+    public void addDataCfgPoList(final List<DataCfgPo> dataCfgPoList) {
         this.dataCfgPoList.addAll(dataCfgPoList);
     }
 
@@ -256,11 +256,11 @@ public class DataSetPo {
         return this.dataCfgApplyPoList;
     }
 
-    public void setDataCfgApplyPoList(List<DataCfgApplyPo> dataCfgApplyPoList) {
+    public void setDataCfgApplyPoList(final List<DataCfgApplyPo> dataCfgApplyPoList) {
         this.dataCfgApplyPoList = dataCfgApplyPoList;
     }
 
-    public void addDataCfgApplyPoList(List<DataCfgApplyPo> dataCfgApplyPoList) {
+    public void addDataCfgApplyPoList(final List<DataCfgApplyPo> dataCfgApplyPoList) {
         this.dataCfgApplyPoList = dataCfgApplyPoList;
     }
 
@@ -268,7 +268,7 @@ public class DataSetPo {
         return this.dataSetApplyPo;
     }
 
-    public void setDataSetApplyPo(DataSetApplyPo dataSetApplyPo) {
+    public void setDataSetApplyPo(final DataSetApplyPo dataSetApplyPo) {
         this.dataSetApplyPo = dataSetApplyPo;
     }
 
@@ -276,16 +276,16 @@ public class DataSetPo {
         return this.unitPo;
     }
 
-    public void setUnitPo(UnitPo unitPo) {
+    public void setUnitPo(final UnitPo unitPo) {
         this.unitPo = unitPo;
     }
 
-    public Date getCreateTime() {
-        return this.createTime;
+    public Date getPublishedDate() {
+        return this.publishedDate;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setPublishedDate(final Date publishedDate) {
+        this.publishedDate = publishedDate;
     }
 
     public long getDataOutCount() {

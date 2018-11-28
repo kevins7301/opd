@@ -604,7 +604,7 @@ public class Ntpc2DaoImpl extends GenericDaoImpl<Object> implements Ntpc2Dao {
         sqlStatment.append("\t , ODS.name AS 'data_set_name' \n ");
         sqlStatment.append("\t , AU.ou AS 'unit_oid' \n ");
         sqlStatment.append("\t , AU.full_name AS 'full_name' \n ");
-        sqlStatment.append("\t , CONVERT(VARCHAR(10), ODS.create_time, 111 ) AS 'create_time' \n ");
+        sqlStatment.append("\t , CONVERT(VARCHAR(10), ODS.published_date, 111 ) AS 'published_date' \n ");
         sqlStatment.append("\t , CASE ODCM1.dataInType \n ");
         sqlStatment.append("\t\tWHEN '0' THEN '上傳檔案' \n ");
         sqlStatment.append("\t\tWHEN '1' THEN '系統介接轉入' \n ");
@@ -647,7 +647,7 @@ public class Ntpc2DaoImpl extends GenericDaoImpl<Object> implements Ntpc2Dao {
             sqlStatment.append("AND AU.full_ou like '%" + unitOid + "%' \n ");
         if ((dataInType != null) && (dataInType.trim().length() != 0))
             sqlStatment.append("AND ODCM1.dataInType = '" + dataInType + "' \n ");
-        sqlStatment.append("ORDER BY ODS.create_time DESC\n ");
+        sqlStatment.append("ORDER BY ODS.published_date DESC\n ");
 
         return (List<Object[]>) getNativeSqlQueryList(sqlStatment.toString());
     }
@@ -665,7 +665,7 @@ public class Ntpc2DaoImpl extends GenericDaoImpl<Object> implements Ntpc2Dao {
         sqlStatment.append("\t , ODS.name AS 'data_set_name' \n ");
         sqlStatment.append("\t , AU.ou AS 'unit_oid' \n ");
         sqlStatment.append("\t , AU.full_name AS 'full_name' \n ");
-        sqlStatment.append("\t , CONVERT(VARCHAR(10), ODS.create_time, 111 ) AS 'create_time' \n ");
+        sqlStatment.append("\t , CONVERT(VARCHAR(10), ODS.published_date, 111 ) AS 'published_date' \n ");
         sqlStatment.append("\t , CASE ODCM.dataInType \n ");
         sqlStatment.append("\t\tWHEN '0' THEN '上傳檔案' \n ");
         sqlStatment.append("\t\tWHEN '1' THEN '系統介接轉入' \n ");
@@ -708,7 +708,7 @@ public class Ntpc2DaoImpl extends GenericDaoImpl<Object> implements Ntpc2Dao {
             sqlStatment.append("AND AU.full_ou like '%" + unitOid + "%' \n ");
         if ((dataInType != null) && (dataInType.trim().length() != 0))
             sqlStatment.append("AND ODCM.dataInType = '" + dataInType + "' \n ");
-        sqlStatment.append("ORDER BY ODS.create_time DESC\n ");
+        sqlStatment.append("ORDER BY ODS.published_date DESC\n ");
 
         return (List<Object[]>) getNativeSqlQueryList(sqlStatment.toString());
     }
@@ -876,9 +876,9 @@ public class Ntpc2DaoImpl extends GenericDaoImpl<Object> implements Ntpc2Dao {
         StringBuffer stringBuffer = new StringBuffer();
         String tempString = null;
         if ((stringList != null) && (stringList.size() != 0)) {
-            stringBuffer.append("'" + (String) stringList.get(0) + "'");
+            stringBuffer.append("'" + stringList.get(0) + "'");
             for (int i = 1; i < stringList.size(); i++)
-                stringBuffer.append(",'" + (String) stringList.get(i) + "'");
+                stringBuffer.append(",'" + stringList.get(i) + "'");
             tempString = stringBuffer.toString();
         }
         return tempString;

@@ -107,7 +107,7 @@ public class DataSetApplyPo {
         return this.oid;
     }
 
-    public void setOid(String oid) {
+    public void setOid(final String oid) {
         this.oid = oid;
     }
 
@@ -115,7 +115,7 @@ public class DataSetApplyPo {
         return this.name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
@@ -123,7 +123,7 @@ public class DataSetApplyPo {
         return this.description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(final String description) {
         this.description = description;
     }
 
@@ -131,7 +131,7 @@ public class DataSetApplyPo {
         return this.isEnable;
     }
 
-    public void setEnable(Boolean isEnable) {
+    public void setEnable(final Boolean isEnable) {
         this.isEnable = isEnable;
     }
 
@@ -139,7 +139,7 @@ public class DataSetApplyPo {
         return this.isPublic;
     }
 
-    public void setPublic(Boolean isPublic) {
+    public void setPublic(final Boolean isPublic) {
         this.isPublic = isPublic;
     }
 
@@ -147,7 +147,7 @@ public class DataSetApplyPo {
         return this.noPublicReason;
     }
 
-    public void setNoPublicReason(String noPublicReason) {
+    public void setNoPublicReason(final String noPublicReason) {
         this.noPublicReason = noPublicReason;
     }
 
@@ -155,7 +155,7 @@ public class DataSetApplyPo {
         return this.comment;
     }
 
-    public void setComment(String comment) {
+    public void setComment(final String comment) {
         this.comment = comment;
     }
 
@@ -163,7 +163,7 @@ public class DataSetApplyPo {
         return this.applyUserName;
     }
 
-    public void setApplyUserName(String applyUserName) {
+    public void setApplyUserName(final String applyUserName) {
         this.applyUserName = applyUserName;
     }
 
@@ -171,7 +171,7 @@ public class DataSetApplyPo {
         return this.actionType;
     }
 
-    public void setActionType(ActionType type) {
+    public void setActionType(final ActionType type) {
         this.actionType = type;
     }
 
@@ -179,7 +179,7 @@ public class DataSetApplyPo {
         return this.applyTime;
     }
 
-    public void setApplyTime(Date applyTime) {
+    public void setApplyTime(final Date applyTime) {
         this.applyTime = applyTime;
     }
 
@@ -187,7 +187,7 @@ public class DataSetApplyPo {
         return this.refuseTime;
     }
 
-    public void setRefuseTime(Date refuseTime) {
+    public void setRefuseTime(final Date refuseTime) {
         this.refuseTime = refuseTime;
     }
 
@@ -195,7 +195,7 @@ public class DataSetApplyPo {
         return this.dataStatus;
     }
 
-    public void setDataStatus(DataStatus status) {
+    public void setDataStatus(final DataStatus status) {
         this.dataStatus = status;
     }
 
@@ -203,7 +203,7 @@ public class DataSetApplyPo {
         return this.dataSetMetadataPoList;
     }
 
-    public void setDataSetMetadataPoList(List<DataSetMetadataApplyPo> dataSetMetadataPoList) {
+    public void setDataSetMetadataPoList(final List<DataSetMetadataApplyPo> dataSetMetadataPoList) {
         this.dataSetMetadataPoList = dataSetMetadataPoList;
     }
 
@@ -211,7 +211,7 @@ public class DataSetApplyPo {
         return this.dataCategoryPo;
     }
 
-    public void setDataCategoryPo(DataCategoryPo dataCategoryPo) {
+    public void setDataCategoryPo(final DataCategoryPo dataCategoryPo) {
         this.dataCategoryPo = dataCategoryPo;
     }
 
@@ -219,7 +219,7 @@ public class DataSetApplyPo {
         return this.dataTagPoList;
     }
 
-    public void setDataTagPoList(List<DataTagPo> dataTagPoList) {
+    public void setDataTagPoList(final List<DataTagPo> dataTagPoList) {
         this.dataTagPoList = dataTagPoList;
     }
 
@@ -227,7 +227,7 @@ public class DataSetApplyPo {
         return this.dataCfgApplyPoList;
     }
 
-    public void setDataCfgApplyPoList(List<DataCfgApplyPo> dataCfgApplyPoList) {
+    public void setDataCfgApplyPoList(final List<DataCfgApplyPo> dataCfgApplyPoList) {
         this.dataCfgApplyPoList = dataCfgApplyPoList;
     }
 
@@ -235,7 +235,7 @@ public class DataSetApplyPo {
         return this.dataSetPo;
     }
 
-    public void setDataSetPo(DataSetPo dataSetPo) {
+    public void setDataSetPo(final DataSetPo dataSetPo) {
         this.dataSetPo = dataSetPo;
     }
 
@@ -243,7 +243,7 @@ public class DataSetApplyPo {
         return this.unitPo;
     }
 
-    public void setUnitPo(UnitPo unitPo) {
+    public void setUnitPo(final UnitPo unitPo) {
         this.unitPo = unitPo;
     }
 
@@ -252,7 +252,7 @@ public class DataSetApplyPo {
 
         private int actionType;
 
-        private ActionType(int actionType) {
+        private ActionType(final int actionType) {
             this.actionType = actionType;
         }
 
@@ -266,7 +266,7 @@ public class DataSetApplyPo {
 
         private int dataStatus;
 
-        private DataStatus(int dataStatus) {
+        private DataStatus(final int dataStatus) {
             this.dataStatus = dataStatus;
         }
 

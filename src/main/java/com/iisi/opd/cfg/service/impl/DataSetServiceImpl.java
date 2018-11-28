@@ -53,7 +53,7 @@ public class DataSetServiceImpl implements DataSetService {
 
     @Override
     public DataSetPo add(DataSetPo po) {
-        return (DataSetPo) this.dataSetDao.save(po);
+        return this.dataSetDao.save(po);
     }
 
     @Override
@@ -73,7 +73,7 @@ public class DataSetServiceImpl implements DataSetService {
 
     @Override
     public DataSetPo findByOid(String oid) {
-        return (DataSetPo) this.dataSetDao.findById(oid);
+        return this.dataSetDao.findById(oid);
     }
 
     @Override
@@ -144,7 +144,7 @@ public class DataSetServiceImpl implements DataSetService {
         dataSetApplyPo.setDataStatus(DataSetApplyPo.DataStatus.APPLY);
         if (this.isVerify.booleanValue()) {
             dataSetApplyPo.setApplyTime(new Date());
-            dataSetApplyPo = (DataSetApplyPo) this.dataSetApplyDao.save(dataSetApplyPo);
+            dataSetApplyPo = this.dataSetApplyDao.save(dataSetApplyPo);
             if (dataSetPo != null) {
                 dataSetPo.setApplied(Boolean.valueOf(true));
                 this.dataSetDao.update(dataSetPo);
@@ -153,7 +153,7 @@ public class DataSetServiceImpl implements DataSetService {
             if (dataSetPo != null) {
                 dataSetPo.setEnable(Boolean.valueOf(true));
                 dataSetPo.setPublicTime(new Date(System.currentTimeMillis()));
-                dataSetPo.setCreateTime(new Date(System.currentTimeMillis()));
+                dataSetPo.setPublishedDate(new Date(System.currentTimeMillis()));
                 this.dataSetDao.update(dataSetPo);
             } else {
                 dataSetPo = new DataSetPo();
@@ -161,11 +161,11 @@ public class DataSetServiceImpl implements DataSetService {
                 dataSetPo.setPublicTime(new Date(System.currentTimeMillis()));
                 dataSetPo.setEnable(Boolean.valueOf(true));
                 dataSetApplyPo.setDataSetPo(dataSetPo);
-                dataSetPo = (DataSetPo) this.dataSetDao.save(dataSetPo);
+                dataSetPo = this.dataSetDao.save(dataSetPo);
             }
             this.dataSetDao.flush();
 
-            dataSetPo = (DataSetPo) this.dataSetDao.findById(dataSetPo.getOid());
+            dataSetPo = this.dataSetDao.findById(dataSetPo.getOid());
             saveDataSetVersion(dataSetPo);
             dataSetApplyPo.setDataSetPo(dataSetPo);
         }
@@ -193,7 +193,7 @@ public class DataSetServiceImpl implements DataSetService {
             dataSetApplyPo.setDataStatus(DataSetApplyPo.DataStatus.APPLY);
             dataSetApplyPo.setApplyTime(new Date());
             dataSetPo.setApplied(Boolean.valueOf(true));
-            back = (DataSetApplyPo) this.dataSetApplyDao.save(dataSetApplyPo);
+            back = this.dataSetApplyDao.save(dataSetApplyPo);
             this.dataSetDao.update(dataSetPo);
         } else {
             dataSetPo = dataSetApplyPo.getDataSetPo();
@@ -223,7 +223,7 @@ public class DataSetServiceImpl implements DataSetService {
         dataSetApplyPo.setDataStatus(DataSetApplyPo.DataStatus.APPLY);
         if (this.isVerify.booleanValue()) {
             dataSetApplyPo.setApplyTime(new Date());
-            back = (DataSetApplyPo) this.dataSetApplyDao.save(dataSetApplyPo);
+            back = this.dataSetApplyDao.save(dataSetApplyPo);
             if (dataSetPo != null) {
                 dataSetPo.setApplied(Boolean.valueOf(true));
                 this.dataSetDao.update(dataSetPo);
@@ -252,6 +252,7 @@ public class DataSetServiceImpl implements DataSetService {
 
     @Override
     public DataSetPo setAgree(String oid) {
+        System.out.println("==開始setAgree==");
         DataSetApplyPo dataSetApplyPo = this.dataSetApplyDao.findById(oid);
         DataSetPo dataSetPo = dataSetApplyPo.getDataSetPo();
         DataSetApplyPo.ActionType type = dataSetApplyPo.getActionType();
@@ -261,7 +262,7 @@ public class DataSetServiceImpl implements DataSetService {
                 copyProperties(dataSetPo, dataSetApplyPo);
                 dataSetPo.setEnable(Boolean.valueOf(true));
                 dataSetPo.setPublicTime(new Date(System.currentTimeMillis()));
-                dataSetPo.setCreateTime(new Date(System.currentTimeMillis()));
+                dataSetPo.setPublishedDate(new Date(System.currentTimeMillis()));
             } else {
                 dataSetPo.setEnable(Boolean.valueOf(true));
                 dataSetPo.setPublicTime(new Date(System.currentTimeMillis()));
@@ -287,7 +288,9 @@ public class DataSetServiceImpl implements DataSetService {
         dataSetPo.setApplied(Boolean.valueOf(false));
         if ((DataSetApplyPo.ActionType.ENABLE.equals(type)) && (dataSetPo.getOid() == null)) {
             // ! dataSet 新增
+            System.out.println("==開始save==");
             dataSetPo = this.dataSetDao.save(dataSetPo);
+            System.out.println("==結束save==");
         } else {
             this.dataSetDao.update(dataSetPo);
         }
@@ -295,12 +298,13 @@ public class DataSetServiceImpl implements DataSetService {
         this.dataSetApplyDao.delete(dataSetApplyPo);
 
         saveDataSetVersion(dataSetPo); // TODO
+        System.out.println("==結束setAgree==");
         return dataSetPo;
     }
 
     @Override
     public void setRefuse(String oid) {
-        DataSetApplyPo dataSetApplyPo = (DataSetApplyPo) this.dataSetApplyDao.findById(oid);
+        DataSetApplyPo dataSetApplyPo = this.dataSetApplyDao.findById(oid);
         dataSetApplyPo.setDataStatus(DataSetApplyPo.DataStatus.REFUSE);
         dataSetApplyPo.setRefuseTime(new Date());
         this.dataSetApplyDao.update(dataSetApplyPo);
@@ -313,7 +317,7 @@ public class DataSetServiceImpl implements DataSetService {
 
     @Override
     public DataSetApplyPo findDataSetApplyPoById(String oid) {
-        return (DataSetApplyPo) this.dataSetApplyDao.findById(oid);
+        return this.dataSetApplyDao.findById(oid);
     }
 
     private void copyProperties(DataSetPo dataSetPo, DataSetApplyPo dataSetApplyPo) {
@@ -467,7 +471,7 @@ public class DataSetServiceImpl implements DataSetService {
             this.dataSetVerDao.deleteAll(removeDataSetVerList);
         }
 
-        List<DataCfgPo> removeDataCfgPoList = ((DataSetPo) this.dataSetDao.findById(dataSetOid)).getDataCfgPoList();
+        List<DataCfgPo> removeDataCfgPoList = this.dataSetDao.findById(dataSetOid).getDataCfgPoList();
         for (DataCfgPo dataCfgPo : removeDataCfgPoList) {
             this.dataCfgService.removeDataCfg(dataCfgPo.getOid());
         }

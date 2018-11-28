@@ -354,9 +354,9 @@ public class DataSetDaoImpl extends GenericDaoImpl<DataSetPo> implements DataSet
         if (orderByOption == null)
             return Order.desc("publicTime");
         if (orderByOption == DataSetPo.OrderByOption.NEWEST_DESC)
-            return Order.desc("createTime");
+            return Order.desc("publishedDate");
         if (orderByOption == DataSetPo.OrderByOption.OLDEST_ASC)
-            return Order.asc("createTime");
+            return Order.asc("publishedDate");
         if (orderByOption == DataSetPo.OrderByOption.HOT_DESC) {
             return NativeSqlOrderUtils.desc("(data_out_count + download_count + view_count + data_srv_count)");
         }
