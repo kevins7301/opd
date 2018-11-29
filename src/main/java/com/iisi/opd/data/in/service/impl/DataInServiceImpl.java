@@ -300,7 +300,7 @@ public class DataInServiceImpl implements DataInService {
                 createDataInLogPo(dataCfgPo, null, DataInLogPo.TransferOptions.BATCH, 0, 0, 0, 0,
                         DataInLogPo.CheckResult.CHECK_FAIL, DataInLogPo.ExecResult.FAIL_STRUCTURE_ERROR, startTime, endTime,
                         getExceptionessage(e), logTime);
-                updateTimeToDataCfgPo(dataCfgPo.getOid());
+                resourceModifiedDateToDataCfgPo(dataCfgPo.getOid());
 
                 throw e;
             }
@@ -310,7 +310,7 @@ public class DataInServiceImpl implements DataInService {
             Date logTime = new Date();
             createDataInLogPo(dataCfgPo, null, DataInLogPo.TransferOptions.SINGLE, 1, 1, 0, 0, DataInLogPo.CheckResult.SKIP_CHECK,
                     DataInLogPo.ExecResult.SUCCESS, startTime, endTime, null, logTime);
-            updateTimeToDataCfgPo(dataCfgPo.getOid());
+            resourceModifiedDateToDataCfgPo(dataCfgPo.getOid());
         }
     }
 
@@ -354,7 +354,7 @@ public class DataInServiceImpl implements DataInService {
         this.dataCfgFileService.saveArgsByDataCfgOid(oid, fileName, fileSize, file);
     }
 
-    private void updateTimeToDataCfgPo(String oid) {
+    private void resourceModifiedDateToDataCfgPo(String oid) {
         this.dataCfgDao.updateCfginfo(oid);
     }
 

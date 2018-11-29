@@ -613,7 +613,8 @@ public class Ntpc2DaoImpl extends GenericDaoImpl<Object> implements Ntpc2Dao {
         sqlStatment.append("\t   END AS 'data_in_type' \n ");
         sqlStatment.append("\t , NULL AS 'has_file' \n ");
         sqlStatment.append("\t , ISNULL(CAST(SDP.schedule AS VARCHAR), '') AS 'schedule' \n ");
-        sqlStatment.append("\t , ISNULL(REPLACE(CONVERT(VARCHAR(25), ODC.update_time, 120 ), '-', '/'), '') AS 'updateTime' \n ");
+        sqlStatment.append(
+                "\t , ISNULL(REPLACE(CONVERT(VARCHAR(25), ODC.resource_modified_date, 120 ), '-', '/'), '') AS 'updateTime' \n ");
         sqlStatment.append("\t , CASE ODCM2.dataCfgUpdateFreq \n ");
         sqlStatment.append("\t\tWHEN 'hour' THEN '每小時' \n ");
         sqlStatment.append("\t\tWHEN 'day' THEN '每日' \n ");
@@ -671,9 +672,10 @@ public class Ntpc2DaoImpl extends GenericDaoImpl<Object> implements Ntpc2Dao {
         sqlStatment.append("\t\tWHEN '1' THEN '系統介接轉入' \n ");
         sqlStatment.append("\t\tWHEN '3' THEN '服務提供' \n ");
         sqlStatment.append("\t   END AS 'data_in_type' \n ");
-        sqlStatment.append("\t , ISNULL(REPLACE(CONVERT(VARCHAR(25), ODC.update_time, 120 ), '-', '/'), '') AS 'this_time' \n ");
+        sqlStatment.append(
+                "\t , ISNULL(REPLACE(CONVERT(VARCHAR(25), ODC.resource_modified_date, 120 ), '-', '/'), '') AS 'this_time' \n ");
         sqlStatment.append("\t , CASE \n ");
-        sqlStatment.append("\t\tWHEN ODC.update_time IS NOT NULL THEN CAST(ODC.data_count AS varchar) \n ");
+        sqlStatment.append("\t\tWHEN ODC.resource_modified_date IS NOT NULL THEN CAST(ODC.data_count AS varchar) \n ");
         sqlStatment.append("\t\tELSE '' \n ");
         sqlStatment.append("\t   END AS 'this_cnt' \n ");
         sqlStatment.append("\t , ISNULL(REPLACE(CONVERT(VARCHAR(25), ( \n ");

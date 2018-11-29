@@ -488,8 +488,8 @@ public class DataSetServiceImpl implements DataSetService {
     }
 
     @Override
-    public List<DataSetPo> findPublicDataSetOrderByCfgUpdateTime() {
-        return this.dataSetDao.findPublicDataSetOrderByCfgUpdateTime();
+    public List<DataSetPo> findPublicDataSetOrderByCfgResourceModifiedDate() {
+        return this.dataSetDao.findPublicDataSetOrderByCfgResourceModifiedDate();
     }
 
     @Override
@@ -503,7 +503,7 @@ public class DataSetServiceImpl implements DataSetService {
     }
 
     @Override
-    public List<Object[]> getDataSetOidAndCfgUpdateTime() {
-        return this.dataSetDao.getDataSetOidAndCfgUpdateTime();
+    public List<Object[]> getDataSetOidAndCfgResourceModifiedDate() {
+        return this.dataSetDao.getDataSetOidAndCfgResourceModifiedDate();
     }
 }

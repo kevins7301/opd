@@ -249,7 +249,7 @@ public class DataCfgDaoImpl extends GenericDaoImpl<DataCfgPo> implements DataCfg
         dataSetCriteria.add(Restrictions.eq("isPublic", Boolean.valueOf(true)));
         dataSetCriteria.add(Restrictions.eq("oid", oid));
 
-        criteria.addOrder(Order.desc("updateTime"));
+        criteria.addOrder(Order.desc("resourceModifiedDate"));
 
         return getHibernateTemplate().findByCriteria(criteria);
     }
@@ -292,14 +292,14 @@ public class DataCfgDaoImpl extends GenericDaoImpl<DataCfgPo> implements DataCfg
 
     @Override
     public void updateCfginfo(String oid) {
-        DataCfgPo dataCfgPo = (DataCfgPo) findById(oid);
-        dataCfgPo.setUpdateTime(new Date(System.currentTimeMillis()));
+        DataCfgPo dataCfgPo = findById(oid);
+        dataCfgPo.setResourceModifiedDate(new Date(System.currentTimeMillis()));
     }
 
     @Override
     public void updateCfginfo(String oid, int count) {
-        DataCfgPo dataCfgPo = (DataCfgPo) findById(oid);
-        dataCfgPo.setUpdateTime(new Date(System.currentTimeMillis()));
+        DataCfgPo dataCfgPo = findById(oid);
+        dataCfgPo.setResourceModifiedDate(new Date(System.currentTimeMillis()));
         dataCfgPo.setDataCount(count);
     }
 
@@ -315,7 +315,7 @@ public class DataCfgDaoImpl extends GenericDaoImpl<DataCfgPo> implements DataCfg
         List<Object[]> objList = (List<Object[]>) getNativeSqlQueryList(sqlQueryStatment.toString(), new Object[] { dataCfgOid });
 
         if ((objList != null) && (objList.size() > 0)) {
-            Object[] obj = (Object[]) objList.get(0);
+            Object[] obj = objList.get(0);
             DataCfgFileDto dataCfgFileDto = new DataCfgFileDto();
             dataCfgFileDto.setOid(obj[0].toString());
             dataCfgFileDto.setName(obj[1].toString());

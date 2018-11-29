@@ -28,7 +28,7 @@ public abstract interface DataSetDao
   
   public abstract List<DataSetPo> findPublicDataSet();
   
-  public abstract List<DataSetPo> findPublicDataSetOrderByCfgUpdateTime();
+  public abstract List<DataSetPo> findPublicDataSetOrderByCfgResourceModifiedDate();
   
   public abstract Pager findPublicDataSet(Pager paramPager);
   
@@ -54,7 +54,7 @@ public abstract interface DataSetDao
   
   public abstract Pager dataSetMultiCollectionSearch(Pager paramPager, List<String> paramList1, List<String> paramList2, IntervalBean paramIntervalBean, String paramString, List<String> paramList3, DataSetPo.OrderByOption paramOrderByOption);
   
-  public abstract List<Object[]> getDataSetOidAndCfgUpdateTime();
+  public abstract List<Object[]> getDataSetOidAndCfgResourceModifiedDate();
   
   public abstract Pager dataSetHotList(Pager paramPager);
   

@@ -395,10 +395,10 @@ public class DataCfgServiceImpl implements DataCfgService {
     }
 
     @Override
-    public void updateUpdateTimeByOid(String oid, Date updateTime) {
+    public void updateResourceModifiedDateByOid(String oid, Date resourceModifiedDate) {
         DataCfgPo dataCfgPo = (DataCfgPo) this.dataCfgDao.findById(oid);
         if (dataCfgPo != null) {
-            dataCfgPo.setUpdateTime(updateTime);
+            dataCfgPo.setResourceModifiedDate(resourceModifiedDate);
             this.dataCfgDao.update(dataCfgPo);
         }
     }

@@ -178,7 +178,7 @@ public class DataSearchServiceImpl implements DataSearchService {
             if (counts.get(key) == null) {
                 counts.put(key, failCounts.get(key));
             } else {
-                counts.put(key, Long.valueOf(((Long) failCounts.get(key)).longValue() + ((Long) counts.get(key)).longValue()));
+                counts.put(key, Long.valueOf(failCounts.get(key).longValue() + counts.get(key).longValue()));
             }
         }
 
@@ -243,7 +243,7 @@ public class DataSearchServiceImpl implements DataSearchService {
             DataSetPo.OrderByOption orderByOption) {
         IntervalBean interval;
         if (isSearchByUpdateTime) {
-            interval = new IntervalBean("dataCfgPoList.updateTime", startTime, endTime);
+            interval = new IntervalBean("dataCfgPoList.resourceModifiedDate", startTime, endTime);
         } else
             interval = new IntervalBean("createTime", startTime, endTime);
         return this.dataSetDao.dataSetMultiCollectionSearch(unitOidList, categoryOidList, interval, mataDataKey,
@@ -263,7 +263,7 @@ public class DataSearchServiceImpl implements DataSearchService {
             DataSetPo.OrderByOption orderByOption) {
         IntervalBean interval;
         if (isSearchByUpdateTime) {
-            interval = new IntervalBean("dataCfgPoList.updateTime", startTime, endTime);
+            interval = new IntervalBean("dataCfgPoList.resourceModifiedDate", startTime, endTime);
         } else
             interval = new IntervalBean("createTime", startTime, endTime);
         return this.dataSetDao.dataSetMultiCollectionSearch(pager, unitOidList, categoryOidList, interval, mataDataKey,

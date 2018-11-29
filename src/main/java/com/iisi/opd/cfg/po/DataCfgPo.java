@@ -59,8 +59,8 @@ public class DataCfgPo {
     private Date lastEditTime;
     @Column(name = "create_time")
     private Date createTime;
-    @Column(name = "update_time")
-    private Date updateTime;
+    @Column(name = "resource_modified_date")
+    private Date resourceModifiedDate;
     @Column(name = "data_count")
     private int dataCount;
     @OneToMany(mappedBy = "dataCfgPo", fetch = FetchType.LAZY, cascade = {
@@ -267,12 +267,12 @@ public class DataCfgPo {
         this.createTime = createTime;
     }
 
-    public Date getUpdateTime() {
-        return this.updateTime;
+    public Date getResourceModifiedDate() {
+        return this.resourceModifiedDate;
     }
 
-    public void setUpdateTime(final Date updateTime) {
-        this.updateTime = updateTime;
+    public void setResourceModifiedDate(final Date resourceModifiedDate) {
+        this.resourceModifiedDate = resourceModifiedDate;
     }
 
     public int getDataCount() {

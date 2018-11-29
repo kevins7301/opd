@@ -159,13 +159,13 @@ public class DataSetDaoImpl extends GenericDaoImpl<DataSetPo> implements DataSet
     }
 
     @Override
-    public List<DataSetPo> findPublicDataSetOrderByCfgUpdateTime() {
+    public List<DataSetPo> findPublicDataSetOrderByCfgResourceModifiedDate() {
         DetachedCriteria criteria = createDetachedCriteriaForFindPublicDataSet();
         criteria.createAlias("dataCfgPoList", "dataCfgPoList", 1);
         criteria.add(Restrictions.eq("dataCfgPoList.isActive", Boolean.valueOf(true)));
         criteria.add(Restrictions.eq("dataCfgPoList.isEnable", Boolean.valueOf(true)));
         criteria.add(Restrictions.eq("dataCfgPoList.isPublic", Boolean.valueOf(true)));
-        criteria.addOrder(Order.desc("dataCfgPoList.updateTime"));
+        criteria.addOrder(Order.desc("dataCfgPoList.resourceModifiedDate"));
         criteria.addOrder(Order.desc("dataSetPo.publicTime"));
 
         return getHibernateTemplate().findByCriteria(criteria);
@@ -371,10 +371,11 @@ public class DataSetDaoImpl extends GenericDaoImpl<DataSetPo> implements DataSet
     }
 
     @Override
-    public List<Object[]> getDataSetOidAndCfgUpdateTime() {
+    public List<Object[]> getDataSetOidAndCfgResourceModifiedDate() {
         StringBuffer sqlStatment = new StringBuffer();
 
-        sqlStatment.append("SELECT ODS.oid, CONVERT(VARCHAR(12), ISNULL(MAX(ODC.update_time), MAX(ODC.public_time)), 111) ");
+        sqlStatment.append(
+                "SELECT ODS.oid, CONVERT(VARCHAR(12), ISNULL(MAX(ODC.resource_modified_date), MAX(ODC.public_time)), 111) ");
         sqlStatment.append("FROM [dbo].[od_data_set] AS ODS ");
         sqlStatment.append("LEFT JOIN [dbo].[od_data_cfg] AS ODC ON ODC.od_data_set_oid = ODS.oid ");
         sqlStatment.append("WHERE ODS.is_active = 1 AND ODS.is_enable = 1 AND ODS.is_public = 1 ");

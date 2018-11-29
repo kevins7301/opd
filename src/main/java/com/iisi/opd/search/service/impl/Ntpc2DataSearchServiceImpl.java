@@ -35,7 +35,7 @@ public class Ntpc2DataSearchServiceImpl implements Ntpc2DataSearchService {
             DataSetPo.OrderByOption orderByOption) {
         IntervalBean interval;
         if (isSearchByUpdateTime) {
-            interval = new IntervalBean("dataCfgPoList.updateTime", startTime, endTime);
+            interval = new IntervalBean("dataCfgPoList.resourceModifiedDate", startTime, endTime);
         } else {
             interval = new IntervalBean("createTime", startTime, endTime);
         }
@@ -56,7 +56,7 @@ public class Ntpc2DataSearchServiceImpl implements Ntpc2DataSearchService {
             DataSetPo.OrderByOption orderByOption) {
         IntervalBean interval;
         if (isSearchByUpdateTime) {
-            interval = new IntervalBean("dataCfgPoList.updateTime", startTime, endTime);
+            interval = new IntervalBean("dataCfgPoList.resourceModifiedDate", startTime, endTime);
         } else {
             interval = new IntervalBean("createTime", startTime, endTime);
         }

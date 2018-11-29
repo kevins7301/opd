@@ -56,7 +56,7 @@ public abstract interface DataSetService
   
   public abstract List<DataSetPo> findPublicDataSet();
   
-  public abstract List<DataSetPo> findPublicDataSetOrderByCfgUpdateTime();
+  public abstract List<DataSetPo> findPublicDataSetOrderByCfgResourceModifiedDate();
   
   public abstract Pager findPublicDataSet(Pager paramPager);
   
@@ -66,7 +66,7 @@ public abstract interface DataSetService
   
   public abstract List<DataSetPo> getAllOriginalDataSetList();
   
-  public abstract List<Object[]> getDataSetOidAndCfgUpdateTime();
+  public abstract List<Object[]> getDataSetOidAndCfgResourceModifiedDate();
   
   public abstract List<DataSetPo> findAllEnable();
 }

@@ -73,7 +73,7 @@ public abstract interface DataCfgService
   
   public abstract void updateDataCountByOid(String paramString, int paramInt);
   
-  public abstract void updateUpdateTimeByOid(String paramString, Date paramDate);
+  public abstract void updateResourceModifiedDateByOid(String paramString, Date paramDate);
   
   public abstract List<DataCfgPo> findPublicByDataSetOid(String paramString);
   
