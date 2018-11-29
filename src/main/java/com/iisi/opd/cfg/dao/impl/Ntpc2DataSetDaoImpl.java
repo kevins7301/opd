@@ -166,7 +166,7 @@
         /* 150 */ sqlStatment.append("\t\t  ,ODS.name \n");
         /* 151 */ sqlStatment.append("\t\t  ,ODSM1.metadata_value \n");
         /* 152 */ sqlStatment.append("\t\t  ,ODS.last_edit_user_name \n");
-        /* 153 */ sqlStatment.append("\t\t  ,ODS.last_edit_time \n");
+        /* 153 */ sqlStatment.append("\t\t  ,ODS.modified_date \n");
         /* 154 */ sqlStatment.append("\t\t  ,'2' \n");
         /* 155 */ sqlStatment.append("\t\t  ,'' \n");
         /* 156 */ sqlStatment.append("\t\t  ,ODSM2.metadata_value \n");

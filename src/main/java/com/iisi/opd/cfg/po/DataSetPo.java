@@ -65,8 +65,8 @@ public class DataSetPo {
     @Column(name = "last_edit_user_name", length = 100)
     private String lastEditUserName;
 
-    @Column(name = "last_edit_time")
-    private Date lastEditTime;
+    @Column(name = "modified_date")
+    private Date modifiedDate;
 
     @Column(name = "published_date")
     private Date publishedDate;
@@ -203,12 +203,12 @@ public class DataSetPo {
         this.lastEditUserName = lastEditUserName;
     }
 
-    public Date getLastEditTime() {
-        return this.lastEditTime;
+    public Date getModifiedDate() {
+        return this.modifiedDate;
     }
 
-    public void setLastEditTime(final Date lastEditTime) {
-        this.lastEditTime = lastEditTime;
+    public void setModifiedDate(final Date modifiedDate) {
+        this.modifiedDate = modifiedDate;
     }
 
     public List<DataSetMetadataPo> getDataSetMetadataPoList() {

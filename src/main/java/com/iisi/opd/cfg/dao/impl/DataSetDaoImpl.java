@@ -363,7 +363,7 @@ public class DataSetDaoImpl extends GenericDaoImpl<DataSetPo> implements DataSet
         if (orderByOption == DataSetPo.OrderByOption.DATA_OUT_DESC)
             return Order.desc("dataOutCount");
         if (orderByOption == DataSetPo.OrderByOption.LAST_EDIT_TIME_DESC)
-            return Order.desc("lastEditTime");
+            return Order.desc("modifiedDate");
         if (orderByOption == DataSetPo.OrderByOption.VIEW_DESC) {
             return Order.desc("viewCount");
         }

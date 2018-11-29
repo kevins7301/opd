@@ -230,7 +230,7 @@ public class DataSetServiceImpl implements DataSetService {
             }
         } else {
             dataSetPo.setLastEditUserName(dataSetApplyPo.getApplyUserName());
-            dataSetPo.setLastEditTime(new Date(System.currentTimeMillis()));
+            dataSetPo.setModifiedDate(new Date(System.currentTimeMillis()));
             dataSetPo.setEnable(Boolean.valueOf(false));
             this.dataSetDao.update(dataSetPo);
 
@@ -271,7 +271,7 @@ public class DataSetServiceImpl implements DataSetService {
             copyProperties(dataSetPo, dataSetApplyPo);
         } else if (DataSetApplyPo.ActionType.DISABLE.equals(type)) {
             dataSetPo.setLastEditUserName(dataSetApplyPo.getApplyUserName());
-            dataSetPo.setLastEditTime(new Date(System.currentTimeMillis()));
+            dataSetPo.setModifiedDate(new Date(System.currentTimeMillis()));
             dataSetPo.setEnable(Boolean.valueOf(false));
         }
 
@@ -329,7 +329,7 @@ public class DataSetServiceImpl implements DataSetService {
         dataSetPo.setLastEditUserName(dataSetApplyPo.getApplyUserName());
         dataSetPo.setDataCategoryPo(dataSetApplyPo.getDataCategoryPo());
         dataSetPo.setUnitPo(dataSetApplyPo.getUnitPo());
-        dataSetPo.setLastEditTime(new Date(System.currentTimeMillis()));
+        dataSetPo.setModifiedDate(new Date(System.currentTimeMillis()));
 
         List<DataTagPo> applyTagList = dataSetApplyPo.getDataTagPoList();
         List<DataTagPo> targetTagList = dataSetPo.getDataTagPoList();
