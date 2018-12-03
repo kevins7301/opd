@@ -453,7 +453,7 @@ public class DataSetServiceImpl implements DataSetService {
         DataSetVerPo dataSetVerPo = new DataSetVerPo();
         copyProperties(dataSetVerPo, dataSetPo);
 
-        dataSetVerPo.getDataSetCategoryVerPo().setDataSetVerPo(dataSetVerPo);
+        //dataSetVerPo.getDataSetCategoryVerPo().setDataSetVerPo(dataSetVerPo);
         dataSetVerPo.setDataSetPo(dataSetPo);
         dataSetVerPo.setLogTime(new Date());
         dataSetVerPo = this.dataSetVerDao.save(dataSetVerPo);
