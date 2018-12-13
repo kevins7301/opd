@@ -71,6 +71,9 @@ public class DataSetPo {
     @Column(name = "published_date")
     private Date publishedDate;
 
+    @Column(name = "create_time")
+    private Date createTime;
+
     @Column(name = "data_out_count", nullable = false, columnDefinition = "bigint default '0'")
     private long dataOutCount;
 
@@ -286,6 +289,14 @@ public class DataSetPo {
 
     public void setPublishedDate(final Date publishedDate) {
         this.publishedDate = publishedDate;
+    }
+
+    public Date getCreateTime() {
+        return this.createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     public long getDataOutCount() {

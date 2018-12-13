@@ -154,6 +154,7 @@ public class DataSetServiceImpl implements DataSetService {
                 dataSetPo.setEnable(Boolean.valueOf(true));
                 dataSetPo.setPublicTime(new Date(System.currentTimeMillis()));
                 dataSetPo.setPublishedDate(new Date(System.currentTimeMillis()));
+                dataSetPo.setCreateTime(new Date(System.currentTimeMillis()));
                 this.dataSetDao.update(dataSetPo);
             } else {
                 dataSetPo = new DataSetPo();
@@ -263,6 +264,7 @@ public class DataSetServiceImpl implements DataSetService {
                 dataSetPo.setEnable(Boolean.valueOf(true));
                 dataSetPo.setPublicTime(new Date(System.currentTimeMillis()));
                 dataSetPo.setPublishedDate(new Date(System.currentTimeMillis()));
+                dataSetPo.setCreateTime(new Date(System.currentTimeMillis()));
             } else {
                 dataSetPo.setEnable(Boolean.valueOf(true));
                 dataSetPo.setPublicTime(new Date(System.currentTimeMillis()));
@@ -288,17 +290,14 @@ public class DataSetServiceImpl implements DataSetService {
         dataSetPo.setApplied(Boolean.valueOf(false));
         if ((DataSetApplyPo.ActionType.ENABLE.equals(type)) && (dataSetPo.getOid() == null)) {
             // ! dataSet 新增
-            System.out.println("==開始save==");
             dataSetPo = this.dataSetDao.save(dataSetPo);
-            System.out.println("==結束save==");
         } else {
             this.dataSetDao.update(dataSetPo);
         }
 
         this.dataSetApplyDao.delete(dataSetApplyPo);
 
-        saveDataSetVersion(dataSetPo); // TODO
-        System.out.println("==結束setAgree==");
+        saveDataSetVersion(dataSetPo);
         return dataSetPo;
     }
 
