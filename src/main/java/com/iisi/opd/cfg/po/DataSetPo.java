@@ -65,6 +65,9 @@ public class DataSetPo {
     @Column(name = "last_edit_user_name", length = 100)
     private String lastEditUserName;
 
+    @Column(name = "last_edit_time")
+    private Date lastEditTime;
+
     @Column(name = "modified_date")
     private Date modifiedDate;
 
@@ -204,6 +207,14 @@ public class DataSetPo {
 
     public void setLastEditUserName(final String lastEditUserName) {
         this.lastEditUserName = lastEditUserName;
+    }
+
+    public Date getLastEditTime() {
+        return this.lastEditTime;
+    }
+
+    public void setLastEditTime(final Date lastEditTime) {
+        this.lastEditTime = lastEditTime;
     }
 
     public Date getModifiedDate() {
