@@ -294,12 +294,14 @@ public class DataCfgDaoImpl extends GenericDaoImpl<DataCfgPo> implements DataCfg
     public void updateCfginfo(String oid) {
         DataCfgPo dataCfgPo = findById(oid);
         dataCfgPo.setResourceModifiedDate(new Date(System.currentTimeMillis()));
+        dataCfgPo.setUpdateTime(new Date(System.currentTimeMillis()));
     }
 
     @Override
     public void updateCfginfo(String oid, int count) {
         DataCfgPo dataCfgPo = findById(oid);
         dataCfgPo.setResourceModifiedDate(new Date(System.currentTimeMillis()));
+        dataCfgPo.setUpdateTime(new Date(System.currentTimeMillis()));
         dataCfgPo.setDataCount(count);
     }
 

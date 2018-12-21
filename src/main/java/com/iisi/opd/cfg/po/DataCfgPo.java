@@ -59,6 +59,8 @@ public class DataCfgPo {
     private Date lastEditTime;
     @Column(name = "create_time")
     private Date createTime;
+    @Column(name = "update_time")
+    private Date updateTime;
     @Column(name = "resource_modified_date")
     private Date resourceModifiedDate;
     @Column(name = "data_count")
@@ -265,6 +267,14 @@ public class DataCfgPo {
 
     public void setCreateTime(final Date createTime) {
         this.createTime = createTime;
+    }
+
+    public Date getUpdateTime() {
+        return this.updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 
     public Date getResourceModifiedDate() {

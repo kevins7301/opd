@@ -399,6 +399,7 @@ public class DataCfgServiceImpl implements DataCfgService {
         DataCfgPo dataCfgPo = (DataCfgPo) this.dataCfgDao.findById(oid);
         if (dataCfgPo != null) {
             dataCfgPo.setResourceModifiedDate(resourceModifiedDate);
+            dataCfgPo.setUpdateTime(resourceModifiedDate);
             this.dataCfgDao.update(dataCfgPo);
         }
     }

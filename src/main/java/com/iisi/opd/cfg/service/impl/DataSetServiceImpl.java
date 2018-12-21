@@ -253,7 +253,6 @@ public class DataSetServiceImpl implements DataSetService {
 
     @Override
     public DataSetPo setAgree(String oid) {
-        System.out.println("==開始setAgree==");
         DataSetApplyPo dataSetApplyPo = this.dataSetApplyDao.findById(oid);
         DataSetPo dataSetPo = dataSetApplyPo.getDataSetPo();
         DataSetApplyPo.ActionType type = dataSetApplyPo.getActionType();
